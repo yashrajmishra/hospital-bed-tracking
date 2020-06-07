@@ -20,15 +20,6 @@ const here_space_id = "H8TuI2tP";
 const here_access_token = "ADqfe44mQe-Nm0N1ybpXnwA";
 
 const MapMaker = () => {
-  // LOOK HERE: fuck axios lets try SWR because i love vercel(ziet actually)
-  const fetcher = (...args) => fetch(...args).then((res) => res.json());
-  const { data, error } = useSWR(
-    `https://xyz.api.here.com/hub/spaces/${here_space_id}/bbox?west=-180&north=90&east=180&south=-90&access_token=${here_access_token}`,
-    fetcher
-  );
-  if (error) return;
-  // if (!data) return <div>loading...</div>;
-
   /**
    * mapEffect
    * @description Fires a callback once the page renders
@@ -38,26 +29,23 @@ const MapMaker = () => {
   async function mapEffect({ leafletElement: map } = {}) {
     if (!map) return;
     //LOOK HERE: this is the data fetch block
-    let response = data;
-    console.log(JSON.stringify(data));
+    let response;
+    // console.log(JSON.stringify(data));
 
     // FIXME: enable dynamic loading
-    // try {
-    //   response = await axios.get(
-    //     `https://xyz.api.here.com/hub/spaces/${here_space_id}/bbox?west=-180&north=90&east=180&south=-90&access_token=${here_access_token}`,
-    //     {
-    //       headers: {
-    //         "Access-Control-Allow-Origin": "yashraj.now.sh",
-    //       },
-    //     }
-    //   );
-    //   console.log(JSON.stringify(response.data));
-    // } catch (e) {
-    //   console.log(`Failed to fetch hospital data: ${e.message}`, e);
-    //   return;
-    // }
+    try {
+      response = await axios.get(
+        `https://xyz.api.here.com/hub/spaces/${here_space_id}/bbox?west=-180&north=90&east=180&south=-90&access_token=${here_access_token}`
+      );
+      console.log(JSON.stringify(response.data));
+    } catch (e) {
+      console.log(`Failed to fetch hospital data: ${e.message}`, e);
+      return;
+    }
 
-    const geoJsonLayers = new L.GeoJSON(response, {
+    // if (!response) return;
+
+    const geoJsonLayers = new L.GeoJSON(response.data, {
       pointToLayer: (feature = {}, latlng) => {
         const { properties = {} } = feature;
 
