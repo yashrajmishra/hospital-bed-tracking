@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 
 import Layout from "components/Layout";
 import Container from "components/Container";
-import MapMaker from "../components/MapMaker";
+import MapMaker from "components/mapMaker";
 
 const SecondPage = () => {
   return (
