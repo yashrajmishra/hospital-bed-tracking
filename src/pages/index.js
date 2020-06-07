@@ -8,7 +8,7 @@ import { promiseToFlyTo, getCurrentLocation } from "lib/map";
 import Layout from "components/Layout";
 import Container from "components/Container";
 import Map from "components/Map";
-import MapMaker from "components/MapMaker";
+import MapMaker from "../components/MapMaker";
 
 import gatsby_astronaut from "assets/images/gatsby-astronaut.jpg";
 
