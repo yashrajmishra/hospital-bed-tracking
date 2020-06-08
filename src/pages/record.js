@@ -3,17 +3,17 @@ import { Helmet } from "react-helmet";
 
 import Layout from "components/Layout";
 import Container from "components/Container";
-import MapMaker from "components/mapMaker";
+import RecordTable from "components/RecordTable";
 
-const SecondPage = () => {
+const RecordPage = () => {
   return (
     <Layout pageName="two">
       <Helmet>
-        <title>Page Two</title>
+        <title>Hospital Beds Report</title>
       </Helmet>
-      <MapMaker />
+      <RecordTable />
     </Layout>
   );
 };
 
-export default SecondPage;
+export default RecordPage;

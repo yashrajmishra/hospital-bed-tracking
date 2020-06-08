@@ -5,7 +5,8 @@ import { Marker } from "react-leaflet";
 
 import Map from "components/Map";
 import axios from "axios";
-import useSWR from "swr";
+
+import { promiseToFlyTo, getCurrentLocation } from "lib/map";
 
 import sampleData from "./sampleData.json";
 
@@ -28,6 +29,12 @@ const MapMaker = () => {
 
   async function mapEffect({ leafletElement: map } = {}) {
     if (!map) return;
+    const location = await getCurrentLocation().catch(() => LOCATION);
+    await promiseToFlyTo(map, {
+      zoom: 10,
+      center: location,
+    });
+
     //LOOK HERE: this is the data fetch block
     let response;
     // console.log(JSON.stringify(data));
