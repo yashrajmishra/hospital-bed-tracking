@@ -38,11 +38,12 @@
   color: white;
   width: 3.6em;
   height: 3.6em;
+  font-family: $font-default;
   font-size: 0.7em;
   font-weight: bold;
-  background-color: $red-800;
+  background-color: $red-A400;
   border-radius: 100%;
-  box-shadow: 0 2px 5px rgba(black, 0.9);
+  box-shadow: 0 2px 5px rgba(black, 0.5);
 
   &:hover {
     .icon-marker-tooltip {
@@ -56,9 +57,10 @@
   position: absolute;
   bottom: 100%;
   width: 16em;
+  color: white;
   font-size: 1.4em;
   padding: 1em;
-  background-color: $blue-grey-900;
+  background-color: $my-color2;
   border-radius: 0.4em;
   margin-bottom: 1em;
   box-shadow: 0 3px 5px rgba(black, 0.9);

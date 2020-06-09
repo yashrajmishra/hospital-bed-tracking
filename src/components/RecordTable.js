@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "gatsby";
 import Container from "components/Container";
 import DataTable, { createTheme } from "react-data-table-component";
+import axios from "axios";
 
 createTheme("solarized", {
   text: {
@@ -25,29 +26,73 @@ createTheme("solarized", {
   },
 });
 
-const data = [{ id: 1, title: "Dicks out for harambe", year: "1982" }];
-
 const columns = [
   {
-    name: "Title",
-    selector: "title",
+    name: "Hospital Name",
+    selector: "hospitalName",
     sortable: true,
   },
   {
-    name: "Year",
-    selector: "year",
+    name: "Available Beds",
+    selector: "availableBed",
     sortable: true,
-    right: true,
+  },
+  {
+    name: "Emergency Contact",
+    selector: "emergencyContact",
+    sortable: true,
+  },
+  {
+    name: "Total Beds",
+    selector: "totalBed",
+    sortable: true,
+  },
+  {
+    name: "Equipted Beds",
+    selector: "equiptedBed",
+    sortable: true,
   },
 ];
 
+const here_space_id = "H8TuI2tP";
+const here_access_token = "ADqfe44mQe-Nm0N1ybpXnwA";
+
 const RecordTable = () => {
+  const [hereData, sethereData] = useState([]);
+
+  useEffect(() => {
+    makeGetRequest();
+  }, []);
+
+  async function makeGetRequest() {
+    axios
+      .get(
+        `https://xyz.api.here.com/hub/spaces/${here_space_id}/bbox?west=-180&north=90&east=180&south=-90&access_token=${here_access_token}`
+      )
+      .then(function (response) {
+        let data = [];
+        console.log(response.data);
+        response.data.features.forEach((element) => {
+          let temp = element.properties;
+          data.push(temp);
+        });
+        sethereData(data);
+        console.log(data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   return (
     <DataTable
-      title="Sample Table"
+      title="Tablular view"
       columns={columns}
-      data={data}
-      theme="solarized"
+      data={hereData}
+      striped="true"
+      highlightOnHover="true"
+      pagination="true"
+      // theme="solarized"
     />
   );
 };

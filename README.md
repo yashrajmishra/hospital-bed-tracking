@@ -27,8 +27,8 @@ _-Yashraj Mishra_
 
 - [x] get data from HERE Map
 - [x] show data in 🌎 map
-- [ ] make a 📑 tabular view
-- [ ] make a 🤗 nice-ui ~
+- [x] make a 📑 tabular view
+- [x] make a 🤗 nice-ui ~
 - [ ] use here map
 - [ ] explain others
 
