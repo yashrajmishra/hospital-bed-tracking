@@ -29,7 +29,8 @@ _-Yashraj Mishra_
 - [x] show data in 🌎 map
 - [x] make a 📑 tabular view
 - [x] make a 🤗 nice-ui ~
-- [ ] use here map
+- [x] use here map
+- [ ] Make table Dark too as your life
 - [ ] explain others
 
 #### I will remove 👈 line when this is finished as this project is incomplete

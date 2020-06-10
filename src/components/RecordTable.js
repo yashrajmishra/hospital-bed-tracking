@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "gatsby";
+import styled from "styled-components";
+
 import Container from "components/Container";
 import DataTable, { createTheme } from "react-data-table-component";
 import axios from "axios";
@@ -25,6 +27,34 @@ createTheme("solarized", {
     disabled: "rgba(0,0,0,.12)",
   },
 });
+
+const customStyles = {
+  headRow: {
+    style: {
+      border: "1px solid #000",
+    },
+  },
+  headCells: {
+    style: {
+      color: "#202124",
+      fontSize: "14px",
+      fontWeight: "bold",
+    },
+  },
+  rows: {
+    highlightOnHoverStyle: {
+      backgroundColor: "#dcdefa",
+      borderBottomColor: "#FFFFFF",
+      borderRadius: "25px",
+      outline: "1px solid #FFFFFF",
+    },
+  },
+  pagination: {
+    style: {
+      border: "none",
+    },
+  },
+};
 
 const columns = [
   {
@@ -89,9 +119,11 @@ const RecordTable = () => {
       title="Tablular view"
       columns={columns}
       data={hereData}
-      striped="true"
-      highlightOnHover="true"
-      pagination="true"
+      striped
+      highlightOnHover
+      pagination
+      customStyles={customStyles}
+
       // theme="solarized"
     />
   );

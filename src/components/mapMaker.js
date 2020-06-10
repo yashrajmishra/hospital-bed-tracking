@@ -17,8 +17,13 @@ const LOCATION = {
 const CENTER = [LOCATION.lat, LOCATION.lng];
 const DEFAULT_ZOOM = 4.5;
 
-const here_space_id = "H8TuI2tP";
-const here_access_token = "ADqfe44mQe-Nm0N1ybpXnwA";
+const here = {
+  spaceId: "H8TuI2tP",
+  accessToken: "ADqfe44mQe-Nm0N1ybpXnwA",
+  apiKey: "jCHmiT3Ap16szMUZ4CQrpCo-Rkg4gkp__l8Xcu14EEQ",
+  restApiKey: "o3N3zNem3drmrwZHHa5e_pKJJrS6bwsi309os_y72kw",
+  mapStyle: "reduced.night",
+};
 
 const MapMaker = () => {
   /**
@@ -43,7 +48,7 @@ const MapMaker = () => {
     // FIXME: enable dynamic loading
     try {
       response = await axios.get(
-        `https://xyz.api.here.com/hub/spaces/${here_space_id}/bbox?west=-180&north=90&east=180&south=-90&access_token=${here_access_token}`
+        `https://xyz.api.here.com/hub/spaces/${here.spaceId}/bbox?west=-180&north=90&east=180&south=-90&access_token=${here.accessToken}`
       );
       console.log(JSON.stringify(response.data));
     } catch (e) {
@@ -97,7 +102,7 @@ const MapMaker = () => {
 
   const mapSettings = {
     center: CENTER,
-    defaultBaseMap: "OpenStreetMap",
+    defaultBaseMap: "HEREMap",
     zoom: DEFAULT_ZOOM,
     mapEffect,
   };
