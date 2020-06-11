@@ -21,6 +21,10 @@ _-Yashraj Mishra_
 
 ---
 
+## Flow Chart
+
+![Flow Chart](https://raw.githubusercontent.com/yashrajmishra/hospital-bed-tracking/master/flow.drawio.svg)
+
 ## TODO
 
 - [x] get data from HERE Map
