@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Container from "components/Container";
 import DataTable, { createTheme } from "react-data-table-component";
 import axios from "axios";
+import { spaceId, accessToken } from "hereConfig";
 
 createTheme("solarized", {
   text: {
@@ -84,9 +85,6 @@ const columns = [
   },
 ];
 
-const here_space_id = "H8TuI2tP";
-const here_access_token = "ADqfe44mQe-Nm0N1ybpXnwA";
-
 const RecordTable = () => {
   const [hereData, sethereData] = useState([]);
 
@@ -97,7 +95,7 @@ const RecordTable = () => {
   async function makeGetRequest() {
     axios
       .get(
-        `https://xyz.api.here.com/hub/spaces/${here_space_id}/bbox?west=-180&north=90&east=180&south=-90&access_token=${here_access_token}`
+        `https://xyz.api.here.com/hub/spaces/${spaceId}/iterate?access_token=${accessToken}`
       )
       .then(function (response) {
         let data = [];
