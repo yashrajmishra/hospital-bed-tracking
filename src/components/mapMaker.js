@@ -9,7 +9,6 @@ import axios from "axios";
 import { promiseToFlyTo, getCurrentLocation } from "lib/map";
 
 import sampleData from "./sampleData.json";
-import { spaceId, accessToken, apiKey, restApiKey, mapStyle } from "hereConfig";
 
 const LOCATION = {
   lat: 23.767016,
@@ -41,7 +40,7 @@ const MapMaker = () => {
     // FIXME: enable dynamic loading
     try {
       response = await axios.get(
-        `https://xyz.api.here.com/hub/spaces/${spaceId}/iterate?access_token=${accessToken}`
+        `https://xyz.api.here.com/hub/spaces/${process.env.GATSBY_HERE_SPACEID}/iterate?access_token=${process.env.GATSBY_HERE_ACCESSTOKEN}`
       );
       console.log(JSON.stringify(response.data));
     } catch (e) {

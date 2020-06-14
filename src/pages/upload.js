@@ -5,9 +5,8 @@ import Layout from "components/Layout";
 import Container from "components/Container";
 import { Button, Form, Input } from "semantic-ui-react";
 import axios from "axios";
-import { spaceId, accessToken, apiKey, restApiKey } from "hereConfig";
 
-console.log(spaceId);
+// console.log(spaceId);
 const UploadPage = () => {
   const [verificationData, setverificationData] = useState({});
   const [result, setResult] = useState("");
@@ -25,10 +24,12 @@ const UploadPage = () => {
     getIDPass();
   }, []);
 
+  console.log("yoyoyoyoyoyoyoy", process.env.GATSBY_HERE_SPACEID);
+
   async function getIDPass() {
     axios
       .get(
-        `https://xyz.api.here.com/hub/spaces/${spaceId}/iterate?access_token=${accessToken}`
+        `https://xyz.api.here.com/hub/spaces/${process.env.GATSBY_HERE_SPACEID}/iterate?access_token=${process.env.GATSBY_HERE_ACCESSTOKEN}`
       )
       .then(function (response) {
         let data = {};
@@ -60,26 +61,6 @@ const UploadPage = () => {
     } else {
       setResult("Wrong Unique ID");
     }
-    // axios
-    //   .get(
-    //     `https://xyz.api.here.com/hub/spaces/${spaceId}/iterate?access_token=${accessToken}`
-    //   )
-    //   .then(function (response) {
-    //     let data = {};
-    //     let csvStr = "";
-    //     console.log(response.data);
-    //     response.data.features.forEach((element) => {
-    //       let temp = element.properties;
-    //       data[element.id] = element.properties.password;
-    //       csvStr += `${element.id},${element.properties.hospitalName},${element.properties.password}\n`
-    //     });
-    //     console.log(data);
-    //     console.log(csvStr);
-    //     setverificationData(data);
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   });
   }
 
   return (

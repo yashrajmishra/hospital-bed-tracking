@@ -11,8 +11,11 @@ A application to get current available hospital beds!
 ```bash
 gatsby new hospital-bed-tracking https://github.com/yashrajmishra/hospital-bed-tracking
 cd hospital-bed-tracking
+cp sampleDotENV .env.development
 yarn develop
 ```
+
+**_Add your Credentials to .env.development_**
 
 ---
 
