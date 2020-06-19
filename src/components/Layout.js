@@ -2,9 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 
+import "semantic-ui-css/semantic.min.css";
 import "assets/stylesheets/application.scss";
 
 import Header from "components/Header";
+import NavBar from "components/Navbar";
 import Footer from "components/Footer";
 
 const Layout = ({ children, pageName }) => {
@@ -20,7 +22,7 @@ const Layout = ({ children, pageName }) => {
         <title>Hospital Bed Tracker</title>
       </Helmet>
       <div className="wrapper">
-        <Header />
+        <NavBar />
         {/* <main> */}
         {children}
         {/* </main> */}

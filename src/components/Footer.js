@@ -1,14 +1,35 @@
 import React from "react";
 
-import Container from "components/Container";
+import {
+  Container,
+  Divider,
+  Dropdown,
+  Grid,
+  Header,
+  Image,
+  List,
+  Menu,
+  Segment,
+} from "semantic-ui-react";
 
 const Footer = () => {
   return (
-    <footer>
-      <Container>
-        <p>&copy; {new Date().getFullYear()}, Made with 💖 by Yashraj Mishra</p>
+    <Segment
+      inverted
+      vertical
+      // style={{ margin: "0"}}
+    >
+      <Container textAlign="center">
+        <Grid divided inverted stackable>
+          <Grid.Column>
+            <Header inverted as="h4">
+              Made with 💖 by{" "}
+              <a href="https://yashraj.now.sh/">Yashraj Mishra</a>
+            </Header>
+          </Grid.Column>
+        </Grid>
       </Container>
-    </footer>
+    </Segment>
   );
 };
 
