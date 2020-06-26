@@ -28,6 +28,7 @@ const MapMaker = () => {
   async function mapEffect({ leafletElement: map } = {}) {
     if (!map) return;
     const location = await getCurrentLocation().catch(() => LOCATION);
+    console.log("Recived Location", location);
     await promiseToFlyTo(map, {
       zoom: 10,
       center: location,
@@ -42,7 +43,7 @@ const MapMaker = () => {
       response = await axios.get(
         `https://xyz.api.here.com/hub/spaces/${process.env.GATSBY_HERE_SPACEID}/iterate?access_token=${process.env.GATSBY_HERE_ACCESSTOKEN}`
       );
-      console.log(JSON.stringify(response.data));
+      // console.log(JSON.stringify(response.data));
     } catch (e) {
       console.log(`Failed to fetch hospital data: ${e.message}`, e);
       return;

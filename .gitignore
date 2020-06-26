@@ -69,3 +69,5 @@ yarn-error.log
 .yarn-integrity
 extra/idpass.csv
 src/hereConfigSample.js
+
+.vercel
