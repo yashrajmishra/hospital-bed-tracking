@@ -23,8 +23,7 @@ const Footer = () => {
         <Grid divided inverted stackable>
           <Grid.Column>
             <Header inverted as="h4">
-              Made with 💖 by{" "}
-              <a href="https://yashraj.now.sh/">Yashraj Mishra</a>
+              Made with 💖 by Hitesh Garg and Adit Agarwal
             </Header>
           </Grid.Column>
         </Grid>

@@ -13,7 +13,18 @@ const AboutPage = () => {
       </Helmet>
       <Container text style={{ marginTop: "7em" }}>
         <Header as="h1">About Project</Header>
-        <p>this project is my Submission for Programmers date by IncubateIND</p>
+        <p>
+          Many people have supported me, in different ways, during the work with
+          the thesis. <br />
+          I’d like to thank my guide Dr. Bhavna Sharma & HOD Dr. Naveen
+          Hemrajani for their kind and active support and valuable guidance
+          during the work process. My family has as always offered me their
+          unconditional support, thank you! I have taken efforts in the Minor
+          Project. However, it would not have been possible without the kind
+          support and many individuals and organizations. I would like to extend
+          my sincere thanks to each and every member related to JECRC
+          University.
+        </p>
       </Container>
     </Layout>
   );
