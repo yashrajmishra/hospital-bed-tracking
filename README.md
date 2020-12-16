@@ -63,9 +63,6 @@ yarn develop
 
 **_Add your Credentials to .env.development_**
 
----
 
-**_I have put lots of effort to build this app please respect that by not changing the footer text and please give this repo a star, Thank you_**
-_-Yashraj Mishra_
 
----
+
