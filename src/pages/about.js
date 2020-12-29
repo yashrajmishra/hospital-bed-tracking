@@ -16,7 +16,7 @@ const AboutPage = () => {
         <p>
           Many people have supported me, in different ways, during the work with
           the thesis. <br />
-          I’d like to thank my guide Mr.Lokendra pal & HOD Dr. Naveen
+          I’d like to thank my guide Mrs. Bhavna Sharma & HOD Dr. Naveen
           Hemrajani for their kind and active support and valuable guidance
           during the work process. My family has as always offered me their
           unconditional support, thank you! I have taken efforts in the Minor

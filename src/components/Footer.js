@@ -23,7 +23,7 @@ const Footer = () => {
         <Grid divided inverted stackable>
           <Grid.Column>
             <Header inverted as="h4">
-              Made by Tarun Prahladka & Tulika kejriwal
+              Made by Adit Agrawal and Hitesh Garg
             </Header>
           </Grid.Column>
         </Grid>
